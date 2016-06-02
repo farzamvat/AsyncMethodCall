@@ -12,9 +12,14 @@ namespace Async {
         }
         public void Call(Func<T,U> func, AsyncCallback callback, T firstFuncParam, object secondFuncParam) {
             AsyncCaller<T,U> caller = new AsyncCaller<T,U>(func);
+            AsyncCallback callbackFunc = null;
+            if (callback != null) {
+                callbackFunc = new AsyncCallback(callback);
+            }
 
             IAsyncResult result = caller.BeginInvoke(firstFuncParam, 
-                new AsyncCallback(callback),secondFuncParam);
+                callbackFunc,
+                secondFuncParam);
 
             result.AsyncWaitHandle.WaitOne();
 
