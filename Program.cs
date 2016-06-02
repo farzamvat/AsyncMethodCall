@@ -11,14 +11,14 @@ namespace Async {
         static void Main(string[] args) {
 
             object secondFuncParam;
-            AsyncCall<int, string> promise = new AsyncCall<int, string>();
-            promise.Call(test,
+            AsyncCall<int, string> instance = new AsyncCall<int, string>();
+            instance.Call(test,
                 delegate(IAsyncResult ar) {
                     Console.WriteLine( ar.AsyncState + " this is callback function.");
                 }, 12345, secondFuncParam : "Hello");
 
             Thread.Sleep(1000);
-            Console.WriteLine(promise.firstFunctionResult);
+            Console.WriteLine(instance.firstFunctionResult);
 
         }
         public static string test(int x) {
