@@ -21,8 +21,6 @@ namespace Async {
                 callbackFunc,
                 secondFuncParam);
 
-            result.AsyncWaitHandle.WaitOne();
-
             firstFunctionResult = caller.EndInvoke(result);
         }
     }
