@@ -1,5 +1,7 @@
 ##Calling synchronous methods asynchronously with callback function
 
+#Deprecated : You can use Task.Factory.StartNew() and call ContinueWith to simulate This AsyncCall class Do not use AsyncCallback delegate and IAsyncResult interface with BeginInvoke,EndInvoke
+
 Recently I found a link (https://msdn.microsoft.com/en-us/library/2e08f6yc(v=vs.110).aspx) 
 about calling sync methods async in c#,
 I found this feature interesting and decided to write a class to simplify this process.
